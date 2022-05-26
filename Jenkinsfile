@@ -1,10 +1,13 @@
+pipeline {
+  agent any
   stages{
     stage('Docker Build'){
       steps{
-        sh 'docker-compose.yml up -d'
+        sh 'docker-compse -f docker-compose.yml up -d'
         sh 'slepp 30'
       }
     }
+
     stage('Build & Push Docker images') {
       when {
         branch 'development'
@@ -18,6 +21,6 @@
         docker push "${ECR_REPO_NGINX}":"${GIT_COMMIT}"
         '''
         }
-       }
+      }
     }
 }
