@@ -1,0 +1,11 @@
+version: '3'
+services:
+  compose-test:
+    image: centos:7
+    links:
+      - compose-db
+    command: sleep infinity
+  compose-db:
+    image: redis
+    expose:
+      - '6379'
