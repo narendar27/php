@@ -3,7 +3,7 @@ pipeline {
   stages{
     stage('Docker Build'){
       steps{
-        sh 'docker-compse -f docker-compose.yml up -d'
+        sh 'docker-compose.yml up -d'
         sh 'slepp 30'
       }
     }
