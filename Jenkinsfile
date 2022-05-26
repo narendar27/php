@@ -17,7 +17,7 @@ node {
 	}
 
 	stage('Deploy') {
-		sh ("docker run -d -p 9000:80 -v /var/log/:/var/log/ ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
+		sh ("docker run -d -p 9000:80 -v /usr/src/myapp:/usr/src/myapp ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
 	}
 	
 	stage('Remove old images') {
